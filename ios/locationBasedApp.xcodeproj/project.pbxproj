@@ -145,7 +145,6 @@
 				2030534DEB6F77119CA91105 /* Pods-locationBasedApp-locationBasedAppTests.debug.xcconfig */,
 				59215557BE3F5E0E9DFE46C2 /* Pods-locationBasedApp-locationBasedAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
