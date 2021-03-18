@@ -8,7 +8,6 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-
 const logo = {
   uri: 'https://reactnative.dev/img/tiny_logo.png',
   width: 30,
@@ -22,6 +21,9 @@ const LocationList = () => {
   const onPressAddBtn = () => {
     setList(preLists => [...preLists, text]);
     setText('');
+  };
+  const onPressDeleteBtn = list => {
+    setList(preLists => preLists.filter(value => value !== list));
   };
   return (
     <ScrollView style={styles.scrollView}>
@@ -44,7 +46,16 @@ const LocationList = () => {
 
       <View style={styles.listView}>
         {lists.map(list => {
-          return <Text style={styles.listText}>{list}</Text>;
+          return (
+            <View style={styles.listItemView}>
+              <Text style={styles.listText}>{list}</Text>
+              <TouchableOpacity
+                onPress={() => onPressDeleteBtn(list)}
+                style={styles.listDelete}>
+                <Image source={logo} />
+              </TouchableOpacity>
+            </View>
+          );
         })}
       </View>
     </ScrollView>
@@ -105,15 +116,23 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontSize: 24,
   },
+
+  listItemView: {
+    flexDirection: 'row',
+    backgroundColor: '#FFB6C1',
+    marginBottom: 3,
+    height: 30,
+  },
   listText: {
     fontSize: 15,
     textAlign: 'center',
     fontWeight: '500',
     color: 'white',
-    marginBottom: 3,
-    height: 30,
     lineHeight: 30,
-    backgroundColor: '#FFB6C1',
+    minWidth: '90%',
+  },
+  listDelete: {
+    minWidth: '10%',
   },
 });
 export default LocationList;
