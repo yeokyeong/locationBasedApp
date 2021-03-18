@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Platform, ScrollView} from 'react-native';
+import {Platform, ScrollView, View} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 import ListView from './Component/ListView';
@@ -58,19 +58,21 @@ const App = () => {
   });
 
   return (
-    <MapView
-      style={{flex: 1}}
-      region={region}
-      onRegionChangeComplete={region => setRegion(region)}>
-      <Marker
-        coordinate={{latitude: region.latitude, longitude: region.longitude}}
-        pinColor="red"
-      />
-    </MapView>
-    //   <ScrollView>
-
-    //     <ListView />
-    //   </ScrollView>
+    // <View style={{flex: 1}}>
+    //   <MapView
+    //     showsUserLocation
+    //     style={{flex: 1}}
+    //     region={region}
+    //     onRegionChangeComplete={region => setRegion(region)}>
+    //     <Marker
+    //       coordinate={{latitude: region.latitude, longitude: region.longitude}}
+    //       pinColor="red"
+    //     />
+    //   </MapView>
+    // </View>
+    <ScrollView>
+      <ListView />
+    </ScrollView>
   );
 };
 
