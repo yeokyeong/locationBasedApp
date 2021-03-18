@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {Platform, ScrollView} from 'react-native';
+import {Platform} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
-import ListView from './Component/ListView';
-import MapComponent from './Component/MapComponent';
-const App = () => {
+
+const MapComponent = () => {
   const [region, setRegion] = useState({
     latitude: 33.506006,
     longitude: 126.49328,
@@ -50,7 +49,7 @@ const App = () => {
     );
 
     return () => {
-      console.log(111, 'component did mount');
+      console.log(111, 'component un mount ');
       if (_watchId) {
         Geolocation.clearWatch(_watchId);
       }
@@ -67,11 +66,6 @@ const App = () => {
         pinColor="red"
       />
     </MapView>
-    //   <ScrollView>
-
-    //     <ListView />
-    //   </ScrollView>
   );
 };
-
-export default App;
+export default MapComponent;
