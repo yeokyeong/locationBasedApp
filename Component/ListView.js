@@ -8,12 +8,13 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
+//https://oblador.github.io/react-native-vector-icons/
 const logo = {
   uri: 'https://reactnative.dev/img/tiny_logo.png',
   width: 30,
   height: 30,
 };
-
 const LocationList = () => {
   const [lists, setList] = useState([]);
   const [text, setText] = useState('');
@@ -52,7 +53,7 @@ const LocationList = () => {
               <TouchableOpacity
                 onPress={() => onPressDeleteBtn(list)}
                 style={styles.listDelete}>
-                <Image source={logo} />
+                <Icon name="minus-square" size={30} color="#900" />
               </TouchableOpacity>
             </View>
           );
