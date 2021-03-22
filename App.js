@@ -4,6 +4,13 @@ import MapView, {Marker} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 import ListView from './Component/ListView';
 import MapComponent from './Component/MapComponent';
+import database from '@react-native-firebase/database';
+database()
+  .ref('/users/123')
+  .once('value')
+  .then(snapshot => {
+    console.log('User data: ', snapshot.val());
+  });
 const App = () => {
   const [region, setRegion] = useState({
     latitude: 33.506006,
